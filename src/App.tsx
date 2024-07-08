@@ -1,7 +1,12 @@
+import { Container } from '@mui/material'
+import { Header } from './components/Header/Header'
+
 function App() {
   return (
     <>
-      <h1>React-todos</h1>
+      <Container maxWidth='sm'>
+        <Header />
+      </Container>
     </>
   )
 }
