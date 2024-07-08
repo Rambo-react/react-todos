@@ -10,7 +10,7 @@ export const CountActiveTodo = () => {
   )
 
   return (
-    <Typography variant='h5' component='h5'>
+    <Typography variant='h5' component='h5' fontSize='1rem' fontWeight={300}>
       {count > 1
         ? `${count} items left`
         : count === 0

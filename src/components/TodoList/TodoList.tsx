@@ -7,7 +7,6 @@ interface TodoListProps {
 }
 
 export const TodoList = ({ todoList }: TodoListProps) => {
-  console.log(todoList)
   return (
     <List>
       {todoList.map((todo) => (

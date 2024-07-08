@@ -5,6 +5,7 @@ import { setFilter } from '../../redux/slices/filterSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import { CountActiveTodo } from './CountActiveTodo/CountActiveTodo'
+import { ClearButton } from './ClearButton/ClearButton'
 
 export const Footer = () => {
   const filter = useSelector((state: RootState) => state.filter.status)
@@ -19,7 +20,7 @@ export const Footer = () => {
   }
 
   return (
-    <Box display='flex' justifyContent='space-between'>
+    <Box display='flex' justifyContent='space-between' alignItems='center'>
       <CountActiveTodo />
       <ToggleButtonGroup
         color='primary'
@@ -28,10 +29,17 @@ export const Footer = () => {
         onChange={onFilterChangeHandler}
         aria-label='Platform'
       >
-        <ToggleButton value='all'>all</ToggleButton>
-        <ToggleButton value='completed'>completed</ToggleButton>
-        <ToggleButton value='active'>active</ToggleButton>
+        <ToggleButton sx={{ border: 'none' }} value='all'>
+          all
+        </ToggleButton>
+        <ToggleButton sx={{ border: 'none' }} value='completed'>
+          completed
+        </ToggleButton>
+        <ToggleButton sx={{ border: 'none' }} value='active'>
+          active
+        </ToggleButton>
       </ToggleButtonGroup>
+      <ClearButton />
     </Box>
   )
 }
