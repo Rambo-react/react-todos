@@ -2,10 +2,11 @@ import { Button, Paper, TextField } from '@mui/material'
 import { useState } from 'react'
 import { addTodo } from '../../redux/slices/todoSlice'
 import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../redux/store'
 
 export const Panel = () => {
   const [inputValue, setInputValue] = useState('')
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   const onChangeInputHandler: React.ChangeEventHandler<HTMLInputElement> = (
     e
