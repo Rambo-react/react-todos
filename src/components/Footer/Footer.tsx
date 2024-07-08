@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 
 export const Footer = () => {
-  const filter = useSelector((state: RootState) => state.filter.filter)
+  const filter = useSelector((state: RootState) => state.filter.status)
 
   const dispatch = useDispatch<AppDispatch>()
 
@@ -14,7 +14,6 @@ export const Footer = () => {
     event: React.MouseEvent<HTMLElement>,
     filterValue: string
   ) => {
-    console.log(filterValue)
     dispatch(setFilter(filterValue))
   }
 
@@ -24,7 +23,7 @@ export const Footer = () => {
       value={filter}
       exclusive
       onChange={onFilterChangeHandler}
-      aria-label='select filter'
+      aria-label='Platform'
     >
       <ToggleButton value='all'>all</ToggleButton>
       <ToggleButton value='completed'>completed</ToggleButton>
