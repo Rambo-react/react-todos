@@ -1,11 +1,13 @@
 import { List } from '@mui/material'
-import { RootState } from '../../redux/store'
-import { useSelector } from 'react-redux'
 import { TodoItem } from './TodoItem/TodoItem'
+import { Todo } from '../../models/Todo'
 
-export const TodoList = () => {
-  const todoList = useSelector((state: RootState) => state)
+interface TodoListProps {
+  todoList: Todo[]
+}
 
+export const TodoList = ({ todoList }: TodoListProps) => {
+  console.log(todoList)
   return (
     <List>
       {todoList.map((todo) => (

@@ -27,6 +27,7 @@ export const Panel = () => {
   }
 
   const onAddButtonHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
+    console.log('asd')
     dispatch(addTodo(inputValue))
     setInputValue('')
   }

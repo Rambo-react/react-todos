@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import todosReducer from './slices/todoSlice'
+import filterReducer from './slices/filterSlice'
 
 export const store = configureStore({
-  reducer: todosReducer,
+  reducer: { todos: todosReducer, filter: filterReducer },
 })
 
 export type AppDispatch = typeof store.dispatch
