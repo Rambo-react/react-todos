@@ -16,7 +16,9 @@ export const Footer = () => {
     event: React.MouseEvent<HTMLElement>,
     filterValue: string
   ) => {
-    dispatch(setFilter(filterValue))
+    if (filterValue !== null) {
+      dispatch(setFilter(filterValue))
+    }
   }
 
   return (
