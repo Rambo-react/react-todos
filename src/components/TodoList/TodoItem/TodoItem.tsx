@@ -18,17 +18,14 @@ export const TodoItem = ({ id, description, completed }: Todo) => {
   return (
     <Paper square>
       <ListItem>
-        <Checkbox
-          edge='start'
-          value={completed}
-          onChange={() => {
+        <ListItemText
+          onClick={() => {
             dispatch(toggleStatusTodo(id))
           }}
-        />
-        <ListItemText
-          style={{
+          sx={{
+            cursor: 'pointer',
             textDecoration: completed ? 'line-through' : 'none',
-            opacity: completed ? '0.8' : 1,
+            opacity: completed ? '0.7' : 1,
           }}
         >
           {description}

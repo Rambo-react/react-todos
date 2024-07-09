@@ -33,20 +33,18 @@ export const Panel = () => {
 
   return (
     <>
-      <Paper elevation={3}>
-        <TextField
-          value={inputValue}
-          onChange={onChangeInputHandler}
-          onKeyDown={onKeyDownInputHandler}
-          label='What needs to be done?'
-          variant='outlined'
-          fullWidth
-          title='"Esc" to clear field'
-        />
-        <Button onClick={onAddButtonHandler} variant='contained' fullWidth>
-          click here or press "enter" to add to list
-        </Button>
-      </Paper>
+      <TextField
+        value={inputValue}
+        onChange={onChangeInputHandler}
+        onKeyDown={onKeyDownInputHandler}
+        label='What needs to be done?'
+        variant='outlined'
+        fullWidth
+        title='"Esc" to clear field'
+      />
+      <Button onClick={onAddButtonHandler} variant='contained' fullWidth>
+        click here or press "enter" to add to list
+      </Button>
     </>
   )
 }

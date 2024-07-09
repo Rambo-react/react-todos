@@ -10,7 +10,11 @@ export const ClearButton = () => {
     dispatch(clearCompletedTodos())
   }
   return (
-    <Button variant='text' onClick={onClickHandler}>
+    <Button
+      variant='text'
+      onClick={onClickHandler}
+      sx={{ textTransform: 'capitalize', marginLeft: 'auto' }}
+    >
       Clear Completed
     </Button>
   )
