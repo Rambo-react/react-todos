@@ -4,7 +4,7 @@ import { AppDispatch } from '../../../redux/store'
 import { useDispatch } from 'react-redux'
 import { clearCompletedTodos } from '../../../redux/slices/todoSlice'
 
-export const ClearButton = () => {
+export const ClearButton = React.memo(() => {
   const dispatch = useDispatch<AppDispatch>()
   const onClickHandler = () => {
     dispatch(clearCompletedTodos())
@@ -18,4 +18,6 @@ export const ClearButton = () => {
       Clear Completed
     </Button>
   )
-}
+})
+
+ClearButton.displayName = 'ClearButton'

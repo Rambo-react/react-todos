@@ -1,18 +1,19 @@
+/// <reference types="vite-plugin-svgr/client" />
+import React from 'react'
 import {
-  Checkbox,
   IconButton,
   ListItem,
   ListItemSecondaryAction,
   ListItemText,
   Paper,
 } from '@mui/material'
-import { Todo } from '../../../models/Todo'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../../redux/store'
+import { Todo } from '../../../models/Todo'
 import { removeTodo, toggleStatusTodo } from '../../../redux/slices/todoSlice'
-import { Delete } from '@mui/icons-material'
+import DelIcon from '../../../assets/delete.svg?react'
 
-export const TodoItem = ({ id, description, completed }: Todo) => {
+export const TodoItem = React.memo(({ id, description, completed }: Todo) => {
   const dispatch = useDispatch<AppDispatch>()
 
   return (
@@ -25,7 +26,7 @@ export const TodoItem = ({ id, description, completed }: Todo) => {
           sx={{
             cursor: 'pointer',
             textDecoration: completed ? 'line-through' : 'none',
-            opacity: completed ? '0.7' : 1,
+            opacity: completed ? 0.7 : 1,
           }}
         >
           {description}
@@ -38,10 +39,12 @@ export const TodoItem = ({ id, description, completed }: Todo) => {
               dispatch(removeTodo(id))
             }}
           >
-            <Delete />
+            <DelIcon />
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
     </Paper>
   )
-}
+})
+
+TodoItem.displayName = 'TodoItem'

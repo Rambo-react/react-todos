@@ -1,12 +1,12 @@
 import { ToggleButton, ToggleButtonGroup } from '@mui/material'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { setFilter } from '../../../redux/slices/filterSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../../redux/store'
 
 const buttonsList = ['all', 'completed', 'active'] as String[]
 
-export const Filter = () => {
+export const Filter = React.memo(() => {
   const filter = useSelector((state: RootState) => state.filter.status)
 
   const dispatch = useDispatch<AppDispatch>()
@@ -20,6 +20,20 @@ export const Filter = () => {
     }
   }
 
+  const ToggleButtons = useMemo(
+    () =>
+      buttonsList.map((el, idx) => (
+        <ToggleButton
+          sx={{ border: 'none', textTransform: 'capitalize' }}
+          value={el}
+          key={idx}
+        >
+          {el}
+        </ToggleButton>
+      )),
+    [buttonsList]
+  )
+
   return (
     <ToggleButtonGroup
       color='primary'
@@ -28,14 +42,9 @@ export const Filter = () => {
       onChange={onFilterChangeHandler}
       aria-label='Platform'
     >
-      {buttonsList.map((el) => (
-        <ToggleButton
-          sx={{ border: 'none', textTransform: 'capitalize' }}
-          value={el}
-        >
-          {el}
-        </ToggleButton>
-      ))}
+      {ToggleButtons}
     </ToggleButtonGroup>
   )
-}
+})
+
+Filter.displayName = 'Filter'

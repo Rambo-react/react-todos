@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Filter } from '../../models/Filter'
 
-const initialState = { status: 'all' }
+const initialState = { status: 'all' } as Filter
 
 const filterSlice = createSlice({
   name: 'filter',

@@ -4,7 +4,7 @@ import { CountActiveTodo } from './CountActiveTodo/CountActiveTodo'
 import { ClearButton } from './ClearButton/ClearButton'
 import { Filter } from './Filter/Filter'
 
-export const Footer = () => {
+export const Footer = React.memo(() => {
   return (
     <Box
       sx={{
@@ -18,4 +18,6 @@ export const Footer = () => {
       <ClearButton />
     </Box>
   )
-}
+})
+
+Footer.displayName = 'Footer'

@@ -5,24 +5,29 @@ import { TodoList } from './components/TodoList/TodoList'
 import { useSelector } from 'react-redux'
 import { RootState } from './redux/store'
 import { Footer } from './components/Footer/Footer'
+import { useMemo } from 'react'
 
 function App() {
   const todoList = useSelector((state: RootState) => state.todos)
   const filter = useSelector((state: RootState) => state.filter.status)
 
-  const filteredTodoList = todoList.filter((todo) => {
-    if (filter === 'all') {
-      return true
-    }
-    if (filter === 'completed' && todo.completed) {
-      return true
-    }
-    if (filter === 'active' && !todo.completed) {
-      return true
-    }
+  const filteredTodoList = useMemo(
+    () =>
+      todoList.filter((todo) => {
+        if (filter === 'all') {
+          return true
+        }
+        if (filter === 'completed' && todo.completed) {
+          return true
+        }
+        if (filter === 'active' && !todo.completed) {
+          return true
+        }
 
-    return false
-  })
+        return false
+      }),
+    [todoList, filter]
+  )
 
   return (
     <>
