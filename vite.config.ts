@@ -11,5 +11,5 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './setupTest.ts',
   },
-  base: '/vite-deploy/',
+  base: '/react-todos/',
 })
