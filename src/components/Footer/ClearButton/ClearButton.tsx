@@ -15,7 +15,7 @@ export const ClearButton = React.memo(() => {
       onClick={onClickHandler}
       sx={{ textTransform: 'capitalize', marginLeft: 'auto' }}
     >
-      Clear Completed
+      Clear completed
     </Button>
   )
 })

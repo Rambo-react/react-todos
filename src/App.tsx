@@ -7,7 +7,7 @@ import { RootState } from './redux/store'
 import { Footer } from './components/Footer/Footer'
 import { useMemo } from 'react'
 
-function App() {
+const App = () => {
   const todoList = useSelector((state: RootState) => state.todos)
   const filter = useSelector((state: RootState) => state.filter.status)
 

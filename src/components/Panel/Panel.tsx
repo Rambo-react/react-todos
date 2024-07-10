@@ -12,7 +12,7 @@ export const Panel = React.memo(() => {
   const onChangeInputHandler: React.ChangeEventHandler<HTMLInputElement> = (
     e
   ) => {
-    if (e.target.value.length > 1) {
+    if (e.target.value.trim().length > 0) {
       setIsError(false)
     }
     setInputValue(e.target.value)
@@ -25,18 +25,20 @@ export const Panel = React.memo(() => {
       setInputValue('')
       setIsError(false)
     }
-    if (e.key === 'Enter') {
-      if (inputValue.length < 2) {
-        setIsError(true)
-        return
-      }
-      dispatch(addTodo(inputValue))
-      setInputValue('')
-    }
   }
 
-  const onAddButtonHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
-    if (inputValue.length < 2) {
+  // const onAddButtonHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
+  //   if (inputValue.trim().length === 0) {
+  //     setIsError(true)
+  //     return
+  //   }
+  //   dispatch(addTodo(inputValue))
+  //   setInputValue('')
+  // }
+
+  const onAddTaskHandler: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault()
+    if (inputValue.trim().length === 0) {
       setIsError(true)
       return
     }
@@ -45,7 +47,7 @@ export const Panel = React.memo(() => {
   }
 
   return (
-    <>
+    <form onSubmit={onAddTaskHandler}>
       <TextField
         value={inputValue}
         error={isError}
@@ -55,13 +57,22 @@ export const Panel = React.memo(() => {
         variant='outlined'
         fullWidth
         title='"Esc" to clear field'
-        helperText={isError ? 'Text must be more than 1 character' : false}
+        helperText={
+          isError
+            ? 'The field cannot be empty or consist only of spaces'
+            : false
+        }
         sx={{ marginBottom: 1 }}
       />
-      <Button onClick={onAddButtonHandler} variant='contained' fullWidth>
+      <Button
+        type='submit'
+        aria-label='submitButton'
+        variant='contained'
+        fullWidth
+      >
         click here or press "enter" to add to list
       </Button>
-    </>
+    </form>
   )
 })
 

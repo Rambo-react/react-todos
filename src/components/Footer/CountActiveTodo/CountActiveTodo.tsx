@@ -10,7 +10,11 @@ export const CountActiveTodo = React.memo(() => {
   )
 
   return (
-    <Typography variant='body1' sx={{ opacity: '0.8' }}>
+    <Typography
+      variant='body1'
+      sx={{ opacity: '0.8' }}
+      aria-label='countActiveTodo'
+    >
       {count > 1
         ? `${count} items left`
         : count === 0

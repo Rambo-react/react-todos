@@ -27,6 +27,7 @@ export const Filter = React.memo(() => {
           sx={{ border: 'none', textTransform: 'capitalize' }}
           value={el}
           key={idx}
+          aria-label={`filter${el}`}
         >
           {el}
         </ToggleButton>
@@ -40,7 +41,7 @@ export const Filter = React.memo(() => {
       value={filter}
       exclusive
       onChange={onFilterChangeHandler}
-      aria-label='Platform'
+      aria-label='filter'
     >
       {ToggleButtons}
     </ToggleButtonGroup>

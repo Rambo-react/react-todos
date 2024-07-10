@@ -14,7 +14,7 @@ import storage from 'redux-persist/lib/storage'
 import todosReducer from './slices/todoSlice'
 import filterReducer from './slices/filterSlice'
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   todos: todosReducer,
   filter: filterReducer,
 })

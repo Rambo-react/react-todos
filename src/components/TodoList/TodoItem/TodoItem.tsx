@@ -18,8 +18,9 @@ export const TodoItem = React.memo(({ id, description, completed }: Todo) => {
 
   return (
     <Paper square>
-      <ListItem>
+      <ListItem aria-label='todoItem'>
         <ListItemText
+          aria-label='todoItemText'
           onClick={() => {
             dispatch(toggleStatusTodo(id))
           }}
@@ -34,7 +35,7 @@ export const TodoItem = React.memo(({ id, description, completed }: Todo) => {
         <ListItemSecondaryAction>
           <IconButton
             color='error'
-            aria-label='delete'
+            aria-label='deletebutton'
             onClick={() => {
               dispatch(removeTodo(id))
             }}
