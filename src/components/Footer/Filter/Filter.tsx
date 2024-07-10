@@ -12,7 +12,7 @@ export const Filter = React.memo(() => {
   const dispatch = useDispatch<AppDispatch>()
 
   const onFilterChangeHandler = (
-    event: React.MouseEvent<HTMLElement>,
+    _event: React.MouseEvent<HTMLElement>,
     filterValue: string
   ) => {
     if (filterValue !== null) {
